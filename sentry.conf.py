@@ -1,26 +1,19 @@
 import os.path
-import os
 
 CONF_ROOT = os.path.dirname(__file__)
 
-database_name = os.environ.get('SENTRY_NAME', '/data/sentry.db')
-database_user = os.environ.get('SENTRY_USER', 'sentry')
-database_password = os.environ.get('SENTRY_PASS', 'sentry')
-database_host = os.environ.get('SENTRY_HOST', '127.0.0.1')
-database_port = os.environ.get('SENTRY_PORT', '')
-
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('SENTRY_ENGINE', 'django.db.backends.sqlite3'),  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': database_name,                      # Or path to database file if using sqlite3.
-        'USER': database_user,                      # Not used with sqlite3.
-        'PASSWORD': database_password,                  # Not used with sqlite3.
-        'HOST': database_host,                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': database_port,                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '/data/sentry.db',               # Or path to database file if using sqlite3.
+        'USER': 'sentry',                        # Not used with sqlite3.
+        'PASSWORD': 'sentry',                    # Not used with sqlite3.
+        'HOST': '',                              # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                              # Set to empty string for default. Not used with sqlite3.
     }
 }
 
-SENTRY_KEY = os.environ.get('SENTRY_KEY', '333dkdslyvBUGWq5bcnW9d1MZQ82qmPZB4pskKS3223fdBfuhySw==')
+SENTRY_KEY = '333dkdslyvBUGWq5bcnW9d1MZQ82qmPZB4pskKS3223fdBfuhySw=='
 
 # Set this to false to require authentication
 SENTRY_PUBLIC = False
