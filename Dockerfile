@@ -29,6 +29,11 @@ RUN python get-pip.py
 
 RUN pip install sentry
 
+RUN apt-get install -y postgresql-client-9.1 postgresql-client-common libpq5
+RUN apt-get install -y libpq-dev
+
+RUN pip install psycopg2
+
 EXPOSE 9000
 VOLUME ["/data"]
 
