@@ -38,6 +38,7 @@ EXPOSE 9000
 VOLUME ["/data"]
 
 ADD sentry.conf.py /sentry.conf.py
+ADD sentry.db /data/sentry.db
 
 ENTRYPOINT ["/usr/local/bin/sentry", "--config=/sentry.conf.py"]
-CMD ["upgrade"]
+CMD ["start"]
