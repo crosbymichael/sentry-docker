@@ -5,7 +5,7 @@ CONF_ROOT = os.path.dirname(__file__)
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('ENGINE','django.db.backends.sqlite3'),  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.getenv('NAME','/data/sentry.db'),               # Or path to database file if using sqlite3.
+        'NAME': os.getenv('NAME','sentry.db'),               # Or path to database file if using sqlite3.
         'USER': os.getenv('USER', 'sentry'),                        # Not used with sqlite3.
         'PASSWORD': os.getenv('PASSWORD', 'sentry'),                    # Not used with sqlite3.
         'HOST': os.getenv('HOST', ''),                              # Set to empty string for localhost. Not used with sqlite3.
@@ -23,7 +23,7 @@ SENTRY_PUBLIC = False
 # SENTRY_URL_PREFIX = 'http://sentry.example.com'  # No trailing slash!
 
 SENTRY_WEB_HOST = '0.0.0.0'
-SENTRY_WEB_PORT = 9000
+SENTRY_WEB_PORT = int(os.getenv("PORT", '9000'))
 SENTRY_WEB_OPTIONS = {
     'workers': 3,  # the number of gunicorn workers
 }
